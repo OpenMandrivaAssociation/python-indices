@@ -1,7 +1,7 @@
 %define oname   indices
 %define name    python-%oname
 %define version 0.1
-%define release 4mdk
+%define release %mkrel 4
 
 
 Summary:       Sequence index, item ranges, and enumeration for python
