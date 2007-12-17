@@ -11,7 +11,6 @@ Release:       %{release}
 Source0:       %{oname}.py
 License:       LGPL
 Group:         Development/Python
-BuildRoot:     %{_tmppath}/%{name}-buildroot
 Url:           http://www.python.org/peps/pep-0212.html
 BuildRequires: python
 BuildArch:     noarch
