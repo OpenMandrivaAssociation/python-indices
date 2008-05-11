@@ -1,7 +1,7 @@
 %define oname   indices
 %define name    python-%oname
 %define version 0.1
-%define release %mkrel 5
+%define release %mkrel 6
 
 
 Summary:       Sequence index, item ranges, and enumeration for python
@@ -14,7 +14,6 @@ Group:         Development/Python
 BuildRoot:     %{_tmppath}/%{name}-buildroot
 Url:           http://www.python.org/peps/pep-0212.html
 BuildRequires: python
-BuildArch:     noarch
 
 %description
 This is a python module providing a number of functions to make it
