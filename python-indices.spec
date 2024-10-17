@@ -11,7 +11,7 @@ Release:       %{release}
 Source0:       %{oname}.py
 License:       LGPL
 Group:         Development/Python
-Url:           http://www.python.org/peps/pep-0212.html
+Url:           https://www.python.org/peps/pep-0212.html
 BuildRequires: python
 
 %description
