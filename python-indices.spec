@@ -7,7 +7,7 @@
 Summary:       Sequence index, item ranges, and enumeration for python
 Name:          %{name}
 Version:       %{version}
-Release:       %{release}1
+Release:       %{release}2
 Source0:       %{oname}.py
 License:       LGPL
 Group:         Development/Python
