@@ -16,7 +16,7 @@
    resulting sequence is as long as the shortest input sequence.
 
    The lazy evaluation versions are prefixed with an x, on analogy
-   with xrange, etc.
+   with range, etc.
 
    The enumerate function from PEP 279 is a lazy version of the
    original irange (restricted to a single sequence). Since enumerate
@@ -30,8 +30,6 @@
 # indices.py version 0.1
 # Written 23 June 2003 by andi payn <payn@myrealbox.com>
 # This work is released under the LGPL, version 2.1 or later
-
-from __future__ import generators
 
 def indices(*sequences):
     """indices([seq1 [, seq2 [...]]]) -> [0, 1, ...]
@@ -72,18 +70,18 @@ def xindices(*sequences):
        
        The goal is to simplify the following idiom:
 
-         for i in xrange(len(sequence)):
+         for i in range(len(sequence)):
            dostuffwith(i, sequence[i])
 
-         for i in xrange(min(len(seq1), len(seq2))):
+         for i in range(min(len(seq1), len(seq2))):
            dostuffwith(i, seq1[i], seq2[i])
 
        The latter can be written as follows:
          for i in indices(seq1, seq2):
            dostuffwith(i, seq1[i], seq2[i])
     """
-    if len(sequences) == 0: return xrange(0)
-    return xrange(min([len(sequence) for sequence in sequences]))
+    if len(sequences) == 0: return range(0)
+    return range(min([len(sequence) for sequence in sequences]))
 
 def irange(*sequences):
     """irange(seq1 [, seq2 [...]]) ->
@@ -150,7 +148,7 @@ def xirange(*sequences):
     """
     if len(sequences) > 0:
         l=min([len(sequence) for sequence in sequences])
-        for i in xrange(l):
+        for i in range(l):
             yield tuple([i] + [sequence[i] for sequence in sequences])
 
 def enumerate(sequence):
@@ -164,6 +162,10 @@ def enumerate(sequence):
     """
     i = 0
     it = iter(sequence)
-    while 1:
-        yield(i, it.next())
+    while True:
+        try:
+            item = next(it)
+        except StopIteration:
+            return
+        yield (i, item)
         i += 1
